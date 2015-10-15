@@ -10,6 +10,11 @@
 		0852BB931BD050CF00F72EFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0852BB921BD050CF00F72EFB /* main.m */; };
 		0852BB961BD050CF00F72EFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0852BB951BD050CF00F72EFB /* AppDelegate.m */; };
 		0852BB9E1BD050CF00F72EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0852BB9D1BD050CF00F72EFB /* Assets.xcassets */; };
+		0852BBAD1BD0593900F72EFB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0852BBAC1BD0593900F72EFB /* MainViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0852BBB51BD05C8100F72EFB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0852BBB41BD05C8100F72EFB /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
+		0852BBCF1BD061CD00F72EFB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0852BBCC1BD061CD00F72EFB /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
+		0852BBD01BD061CD00F72EFB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0852BBCD1BD061CD00F72EFB /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
+		0852BBD11BD061CD00F72EFB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0852BBCE1BD061CD00F72EFB /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,12 @@
 		0852BB951BD050CF00F72EFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0852BB9D1BD050CF00F72EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0852BBA21BD050CF00F72EFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0852BBAB1BD0593900F72EFB /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		0852BBAC1BD0593900F72EFB /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		0852BBB41BD05C8100F72EFB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0852BBCC1BD061CD00F72EFB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../../../Documents/FacebookSDKs-iOS-20151007/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		0852BBCD1BD061CD00F72EFB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../../../Documents/FacebookSDKs-iOS-20151007/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		0852BBCE1BD061CD00F72EFB /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../../../../Documents/FacebookSDKs-iOS-20151007/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +37,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0852BBD01BD061CD00F72EFB /* FBSDKLoginKit.framework in Frameworks */,
+				0852BBCF1BD061CD00F72EFB /* FBSDKCoreKit.framework in Frameworks */,
+				0852BBD11BD061CD00F72EFB /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +49,7 @@
 		0852BB851BD050CE00F72EFB = {
 			isa = PBXGroup;
 			children = (
+				0852BBB41BD05C8100F72EFB /* Default-568h@2x.png */,
 				0852BB901BD050CE00F72EFB /* fartometer */,
 				0852BB8F1BD050CE00F72EFB /* Products */,
 			);
@@ -51,6 +66,9 @@
 		0852BB901BD050CE00F72EFB /* fartometer */ = {
 			isa = PBXGroup;
 			children = (
+				0852BBCB1BD0616800F72EFB /* Framework */,
+				0852BBAA1BD058FF00F72EFB /* Headers */,
+				0852BBA91BD0582000F72EFB /* ViewControllers */,
 				0852BB941BD050CF00F72EFB /* AppDelegate.h */,
 				0852BB951BD050CF00F72EFB /* AppDelegate.m */,
 				0852BB9D1BD050CF00F72EFB /* Assets.xcassets */,
@@ -66,6 +84,32 @@
 				0852BB921BD050CF00F72EFB /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0852BBA91BD0582000F72EFB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0852BBAC1BD0593900F72EFB /* MainViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0852BBAA1BD058FF00F72EFB /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				0852BBAB1BD0593900F72EFB /* MainViewController.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		0852BBCB1BD0616800F72EFB /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				0852BBCC1BD061CD00F72EFB /* FBSDKCoreKit.framework */,
+				0852BBCD1BD061CD00F72EFB /* FBSDKLoginKit.framework */,
+				0852BBCE1BD061CD00F72EFB /* FBSDKShareKit.framework */,
+			);
+			name = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0852BB9E1BD050CF00F72EFB /* Assets.xcassets in Resources */,
+				0852BBB51BD05C8100F72EFB /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0852BB961BD050CF00F72EFB /* AppDelegate.m in Sources */,
+				0852BBAD1BD0593900F72EFB /* MainViewController.m in Sources */,
 				0852BB931BD050CF00F72EFB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,8 +277,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherit)",
+					"\"$(SRCROOT)/../../../../../Documents/FacebookSDKs-iOS-20151007/\"",
+					"\"$(SRCROOT)/../../\"",
+					"\"$(SRCROOT)/\"",
+				);
 				INFOPLIST_FILE = fartometer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ideiadoluiz.fartometer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -242,8 +294,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherit)",
+					"\"$(SRCROOT)/../../\"",
+					"\"$(SRCROOT)/\"",
+				);
 				INFOPLIST_FILE = fartometer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ideiadoluiz.fartometer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
