@@ -56,6 +56,10 @@
     <string><!-- YOUR FACEBOOK APP ID --></string>
     <key>FacebookDisplayName</key>
     <string><!-- YOUR FACEBOOK APP NAME --></string>
+    <key>LSApplicationQueriesSchemes</key>
+      <array>
+        <string>fbauth2</string>
+    </array>
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSExceptionDomains</key>
