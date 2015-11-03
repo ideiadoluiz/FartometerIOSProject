@@ -7,11 +7,14 @@
 //
 
 #import "MainViewController.h"
+#import "FacebookHelper.h"
+#import "SessionHelper.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface MainViewController ()
+@interface MainViewController () <FacebookHelperDelegate>
+
+@property (nonatomic) UILabel *lblFacebookLogin;
 
 @end
 
@@ -20,24 +23,43 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.center = self.view.center;
-    [self.view addSubview:loginButton];
+    [self addFacebookButton];
+}
+
+- (void) addFacebookButton
+{
+    CGRect frame = CGRectMake(0, 0, 170, 20);
+    UIButton *fbLoginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    fbLoginBtn.frame = frame;
+    [fbLoginBtn setTitle: @"" forState: UIControlStateNormal];
+    self.lblFacebookLogin = [[UILabel alloc]initWithFrame:frame];
+    self.lblFacebookLogin.text = [[SessionHelper sharedInstance] getLocalizedStringForName:@"login_fb"];
+    self.lblFacebookLogin.textAlignment = NSTextAlignmentCenter;
+    self.lblFacebookLogin.textColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
+    [fbLoginBtn addSubview:self.lblFacebookLogin];
+    fbLoginBtn.center = self.view.center;
+    
+    
+    // Handle clicks on the button
+    [fbLoginBtn
+     addTarget:[FacebookHelper sharedInstance]
+     action:@selector(loginButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+    // Handle LogIn status changed
+    [FacebookHelper sharedInstance].delegate = self;
+    
+    // Add the button to the view
+    [self.view addSubview:fbLoginBtn];
+}
+
+- (void)loginStatusDidChange:(BOOL)isLoggedIn
+{
+    self.lblFacebookLogin.text = isLoggedIn ? [[SessionHelper sharedInstance] getLocalizedStringForName:@"logout_fb"]  : [[SessionHelper sharedInstance] getLocalizedStringForName:@"login_fb"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
