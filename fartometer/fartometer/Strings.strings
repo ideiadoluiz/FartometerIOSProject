@@ -14,4 +14,7 @@
 "ok" = "OK";
 "ble_not_found" = "BLE device not found";
 "ble_not_found_desc" = "Please check if your BLE device is working properly.";
+"app_name" = "Fartometer";
+"devices" = "BLE Devices";
+"device_name_label" = "Device name: ";
 

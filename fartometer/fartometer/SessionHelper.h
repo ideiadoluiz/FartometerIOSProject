@@ -10,6 +10,7 @@
 
 @interface SessionHelper : NSObject
 
+#define FART_HEIGHT_CELL 50
 #define FART_BTN_FRAME CGRectMake(0, 0, 170, 20)
 #define FART_BLUE_COLOR_LINK [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]
 

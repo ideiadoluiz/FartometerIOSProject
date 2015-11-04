@@ -33,6 +33,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = [[SessionHelper sharedInstance] getLocalizedStringForName:@"app_name"];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor orangeColor]}];
+    
     [self createViews];
     
     // Handle LogIn status changed
@@ -147,7 +150,7 @@
         if ([[SessionHelper sharedInstance] isDebugging])
             NSLog(@"%@", peripherals);
         
-        [self.navigationController pushViewController:[[DeviceDetailViewController alloc] initWithPeripherals:peripherals]  animated:YES];
+        [self.navigationController pushViewController:[[DeviceDetailViewController alloc] initWithPeripherals:peripherals]  animated:NO];
     }
 }
 
