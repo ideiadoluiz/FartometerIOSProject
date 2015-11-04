@@ -10,4 +10,6 @@
 
 @interface DeviceDetailViewController : UIViewController
 
+- (instancetype) initWithPeripherals:(NSArray *)peripherals;
+
 @end

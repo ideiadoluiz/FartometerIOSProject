@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "DeviceDetailViewController.h"
 #import "FacebookHelper.h"
 #import "SessionHelper.h"
 #import "BLEHelper.h"
@@ -141,9 +142,13 @@
         [alert addAction:defaultAction];
         [self presentViewController:alert animated:YES completion:nil];
     }
-    
-    if ([[SessionHelper sharedInstance] isDebugging])
-        NSLog(@"%@", peripherals);
+    else
+    {
+        if ([[SessionHelper sharedInstance] isDebugging])
+            NSLog(@"%@", peripherals);
+        
+        [self.navigationController pushViewController:[[DeviceDetailViewController alloc] initWithPeripherals:peripherals]  animated:YES];
+    }
 }
 
 - (void) handleView:(BOOL)isLoggedIn

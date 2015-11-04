@@ -33,9 +33,19 @@
     return self;
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    UILabel* label =[[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
+    label.text = [self.peripherals firstObject];
+    [self.view addSubview:label];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"Title for NavigationBar";
 }
 
 - (void)didReceiveMemoryWarning {
