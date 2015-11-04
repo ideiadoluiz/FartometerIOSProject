@@ -7,6 +7,7 @@
 //
 
 #import "FacebookHelper.h"
+#import "SessionHelper.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -31,7 +32,7 @@
 
 - (instancetype) init
 {
-    [NSException raise:@"Singleton" format:@"Use +[FacebookHelper sharedStore]"];
+    [NSException raise:@"Singleton" format:@"Use +[FacebookHelper sharedInstance]"];
     return nil;
 }
 
@@ -56,20 +57,26 @@
          logInWithReadPermissions: @[@"public_profile", /*@"email",*/ @"user_friends"]
          fromViewController:nil
          handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-             if (error) {
-                 NSLog(@"Process error");
-             } else if (result.isCancelled) {
-                 NSLog(@"Cancelled");
-             } else {
-                 NSLog(@"Logged in");
-                 [self statusChanged];
+             if ([[SessionHelper sharedInstance] isDebugging])
+             {
+                 if (error) {
+                     NSLog(@"Process error");
+                 } else if (result.isCancelled) {
+                     NSLog(@"Cancelled");
+                 } else {
+                     NSLog(@"Logged in");
+                 }
              }
+             
+             [self statusChanged];
          }];
     }
     else
     {
         [self.fbLogin logOut];
-        NSLog(@"Logged out");
+        if([[SessionHelper sharedInstance] isDebugging])
+            NSLog(@"Logged out");
+        
         [self statusChanged];
     }
 }

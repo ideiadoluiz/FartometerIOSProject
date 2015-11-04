@@ -26,9 +26,21 @@
     return sharedStore;
 }
 
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize
+{
+    //UIGraphicsBeginImageContext(newSize);
+    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
+    // Pass 1.0 to force exact pixel size.
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 - (instancetype) init
 {
-    [NSException raise:@"Singleton" format:@"Use +[SessionHelper sharedStore]"];
+    [NSException raise:@"Singleton" format:@"Use +[SessionHelper sharedInstance]"];
     return nil;
 }
 
@@ -46,6 +58,11 @@
 - (NSString *)getLocalizedStringForName:(NSString *)stringName
 {
     return [self.dicStrings objectForKey:stringName];
+}
+
+- (BOOL) isDebugging
+{
+    return YES;
 }
 
 @end

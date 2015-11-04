@@ -10,9 +10,14 @@
 
 @interface SessionHelper : NSObject
 
-@property (nonatomic) BOOL isDebugging;
+#define FART_BTN_FRAME CGRectMake(0, 0, 170, 20)
+#define FART_BLUE_COLOR_LINK [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]
+
+@property (nonatomic, readonly) BOOL isDebugging;
 
 + (instancetype) sharedInstance;
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
+
 - (NSString *) getLocalizedStringForName:(NSString *)stringName;
 
 @end
