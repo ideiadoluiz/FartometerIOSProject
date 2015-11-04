@@ -9,4 +9,9 @@
 "login_fb" = "Login with Facebook";
 "logout_fb" = "Logout";
 "bluetooth" = "Scan BLE Device";
+"scan_failed" = "BLE Scan failed";
+"check_scan" = "Please check if your bluetooth is connected.";
+"ok" = "OK";
+"ble_not_found" = "BLE device not found";
+"ble_not_found_desc" = "Please check if your BLE device is working properly.";
 

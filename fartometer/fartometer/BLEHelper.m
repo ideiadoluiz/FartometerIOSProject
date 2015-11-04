@@ -58,7 +58,10 @@
     }
     
     if (self.bleShield.peripherals)
+    {
         self.bleShield.peripherals = nil;
+        [self.mPeripherals removeAllObjects];
+    }
     
     int startScanning = [self.bleShield findBLEPeripherals:3];
     

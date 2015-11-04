@@ -12,6 +12,7 @@
 #import "BLEHelper.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <UIKit/UIKit.h>
 
 @interface MainViewController () <FacebookHelperDelegate, BLEHelperDelegate>
 
@@ -21,6 +22,8 @@
 @property (nonatomic) UIButton *btnBluetooth;
 @property (nonatomic) UIImageView *imgView;
 @property (nonatomic) UIActivityIndicatorView *activityIndicator;
+
+@property (nonatomic) BOOL resScanNoErrors;
 
 @end
 
@@ -103,11 +106,22 @@
 
 - (void)bluetoothButtonClicked
 {
-    BOOL resScan = [[BLEHelper sharedInstance] startBLEShieldScan];
-    [self.btnBluetooth setHidden:resScan];
-    [self.activityIndicator setHidden:!resScan];
-    if(resScan)
+    self.resScanNoErrors = [[BLEHelper sharedInstance] startBLEShieldScan];
+    [self.btnBluetooth setHidden:self.resScanNoErrors];
+    [self.activityIndicator setHidden:!self.resScanNoErrors];
+    if(self.resScanNoErrors)
         [self.activityIndicator startAnimating];
+    else
+    {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:[[SessionHelper sharedInstance] getLocalizedStringForName:@"scan_failed"]
+                                                                       message:[[SessionHelper sharedInstance] getLocalizedStringForName:@"check_scan"]
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:[[SessionHelper sharedInstance] getLocalizedStringForName:@"ok"] style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 - (void) deviceDidScanBluetooth:(NSArray *)peripherals
@@ -116,7 +130,20 @@
     [self.activityIndicator stopAnimating];
     [self.activityIndicator setHidden:YES];
     
-    NSLog(@"%@", peripherals);
+    if ([peripherals count] == 0 && self.resScanNoErrors)
+    {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:[[SessionHelper sharedInstance] getLocalizedStringForName:@"ble_not_found"]
+                                                                       message:[[SessionHelper sharedInstance] getLocalizedStringForName:@"ble_not_found_desc"]
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:[[SessionHelper sharedInstance] getLocalizedStringForName:@"ok"] style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    
+    if ([[SessionHelper sharedInstance] isDebugging])
+        NSLog(@"%@", peripherals);
 }
 
 - (void) handleView:(BOOL)isLoggedIn
