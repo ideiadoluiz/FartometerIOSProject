@@ -8,6 +8,7 @@
 
 #import "DeviceDetailViewController.h"
 #import "SessionHelper.h"
+#import "MainTabBarController.h"
 
 #import <CoreBluetooth/CoreBluetooth.h>
 
@@ -134,7 +135,7 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [self.navigationController pushViewController:[MainTabBarController new]  animated:NO];
 }
 
 

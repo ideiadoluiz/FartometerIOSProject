@@ -44,6 +44,18 @@
     [BLEHelper sharedInstance].delegate = self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    // check if another view controller asked to refresh devices
+    if (self.shouldRefreshBluetoothDevices)
+    {
+        [self bluetoothButtonClicked];
+        self.shouldRefreshBluetoothDevices = false;
+    }
+    
+    [super viewWillAppear:animated];
+}
+
 -(BOOL)shouldAutorotate {
     return NO;
 }
@@ -145,7 +157,7 @@
         [alert addAction:defaultAction];
         [self presentViewController:alert animated:YES completion:nil];
     }
-    else
+    else if (self.resScanNoErrors)
     {
         if ([[SessionHelper sharedInstance] isDebugging])
             NSLog(@"%@", peripherals);

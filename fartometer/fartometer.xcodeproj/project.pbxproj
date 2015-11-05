@@ -7,18 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		083C18F71BEBD9C600B2A4D5 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083C18F61BEBD9C600B2A4D5 /* MainTabBarController.m */; };
+		083C18FA1BEBE70E00B2A4D5 /* FartometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083C18F91BEBE70E00B2A4D5 /* FartometerViewController.m */; };
+		083C18FD1BEBE72600B2A4D5 /* FartometerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083C18FC1BEBE72600B2A4D5 /* FartometerDetailViewController.m */; };
+		083C19041BEC076C00B2A4D5 /* fartometer-obj.png in Resources */ = {isa = PBXBuildFile; fileRef = 083C18FE1BEC076C00B2A4D5 /* fartometer-obj.png */; };
+		083C19051BEC076C00B2A4D5 /* fartometer-obj-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 083C18FF1BEC076C00B2A4D5 /* fartometer-obj-arrow.png */; };
 		0852BB931BD050CF00F72EFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0852BB921BD050CF00F72EFB /* main.m */; };
 		0852BB961BD050CF00F72EFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0852BB951BD050CF00F72EFB /* AppDelegate.m */; };
 		0852BB9E1BD050CF00F72EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0852BB9D1BD050CF00F72EFB /* Assets.xcassets */; };
-		0852BBAD1BD0593900F72EFB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0852BBAC1BD0593900F72EFB /* MainViewController.m */; settings = {ASSET_TAGS = (); }; };
-		0852BBB51BD05C8100F72EFB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0852BBB41BD05C8100F72EFB /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
-		0852BBCF1BD061CD00F72EFB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0852BBCC1BD061CD00F72EFB /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
-		0852BBD01BD061CD00F72EFB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0852BBCD1BD061CD00F72EFB /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
-		0852BBD11BD061CD00F72EFB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0852BBCE1BD061CD00F72EFB /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
+		0852BBAD1BD0593900F72EFB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0852BBAC1BD0593900F72EFB /* MainViewController.m */; };
+		0852BBB51BD05C8100F72EFB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0852BBB41BD05C8100F72EFB /* Default-568h@2x.png */; };
+		0852BBCF1BD061CD00F72EFB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0852BBCC1BD061CD00F72EFB /* FBSDKCoreKit.framework */; };
+		0852BBD01BD061CD00F72EFB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0852BBCD1BD061CD00F72EFB /* FBSDKLoginKit.framework */; };
+		0852BBD11BD061CD00F72EFB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0852BBCE1BD061CD00F72EFB /* FBSDKShareKit.framework */; };
+		0853394E1BE7EC8900F6F509 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0853394D1BE7EC8900F6F509 /* CoreBluetooth.framework */; };
+		0855D08E1BE93BF500A3E1DC /* fart-img.png in Resources */ = {isa = PBXBuildFile; fileRef = 0855D08C1BE93BF500A3E1DC /* fart-img.png */; };
+		0855D0921BE9533C00A3E1DC /* FacebookHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855D0911BE9533C00A3E1DC /* FacebookHelper.m */; };
+		0855D0951BE96D5A00A3E1DC /* Strings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0855D0941BE96D5A00A3E1DC /* Strings.strings */; };
+		0855D0981BE96FAA00A3E1DC /* SessionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855D0971BE96FAA00A3E1DC /* SessionHelper.m */; };
+		08A158A41BEA847E005E232E /* BLEHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A158A31BEA847E005E232E /* BLEHelper.m */; };
+		08A158A71BEA93C4005E232E /* DeviceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A158A61BEA93C4005E232E /* DeviceDetailViewController.m */; };
+		08C683131BE7ED1100818CDD /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C683111BE7ED1100818CDD /* BLE.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0852BB8E1BD050CE00F72EFB /* fartometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fartometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		083C18F51BEBD9C600B2A4D5 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		083C18F61BEBD9C600B2A4D5 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		083C18F81BEBE70E00B2A4D5 /* FartometerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FartometerViewController.h; sourceTree = "<group>"; };
+		083C18F91BEBE70E00B2A4D5 /* FartometerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FartometerViewController.m; sourceTree = "<group>"; };
+		083C18FB1BEBE72600B2A4D5 /* FartometerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FartometerDetailViewController.h; sourceTree = "<group>"; };
+		083C18FC1BEBE72600B2A4D5 /* FartometerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FartometerDetailViewController.m; sourceTree = "<group>"; };
+		083C18FE1BEC076C00B2A4D5 /* fartometer-obj.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fartometer-obj.png"; sourceTree = "<group>"; };
+		083C18FF1BEC076C00B2A4D5 /* fartometer-obj-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fartometer-obj-arrow.png"; sourceTree = "<group>"; };
+		0852BB8E1BD050CE00F72EFB /* Fartometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fartometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0852BB921BD050CF00F72EFB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0852BB941BD050CF00F72EFB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0852BB951BD050CF00F72EFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -30,6 +51,20 @@
 		0852BBCC1BD061CD00F72EFB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../../../Documents/FacebookSDKs-iOS-20151007/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		0852BBCD1BD061CD00F72EFB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../../../Documents/FacebookSDKs-iOS-20151007/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		0852BBCE1BD061CD00F72EFB /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../../../../Documents/FacebookSDKs-iOS-20151007/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		0853394D1BE7EC8900F6F509 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		0855D08C1BE93BF500A3E1DC /* fart-img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fart-img.png"; sourceTree = "<group>"; };
+		0855D0901BE9533C00A3E1DC /* FacebookHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookHelper.h; sourceTree = "<group>"; };
+		0855D0911BE9533C00A3E1DC /* FacebookHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookHelper.m; sourceTree = "<group>"; };
+		0855D0941BE96D5A00A3E1DC /* Strings.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Strings.strings; sourceTree = "<group>"; };
+		0855D0961BE96FAA00A3E1DC /* SessionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionHelper.h; sourceTree = "<group>"; };
+		0855D0971BE96FAA00A3E1DC /* SessionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionHelper.m; sourceTree = "<group>"; };
+		08A158A21BEA847E005E232E /* BLEHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEHelper.h; sourceTree = "<group>"; };
+		08A158A31BEA847E005E232E /* BLEHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEHelper.m; sourceTree = "<group>"; };
+		08A158A51BEA93C4005E232E /* DeviceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceDetailViewController.h; sourceTree = "<group>"; };
+		08A158A61BEA93C4005E232E /* DeviceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceDetailViewController.m; sourceTree = "<group>"; };
+		08C683101BE7ED1100818CDD /* BLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLE.h; sourceTree = "<group>"; };
+		08C683111BE7ED1100818CDD /* BLE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLE.m; sourceTree = "<group>"; };
+		08C683121BE7ED1100818CDD /* BLEDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEDefines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0853394E1BE7EC8900F6F509 /* CoreBluetooth.framework in Frameworks */,
 				0852BBD01BD061CD00F72EFB /* FBSDKLoginKit.framework in Frameworks */,
 				0852BBCF1BD061CD00F72EFB /* FBSDKCoreKit.framework in Frameworks */,
 				0852BBD11BD061CD00F72EFB /* FBSDKShareKit.framework in Frameworks */,
@@ -58,7 +94,7 @@
 		0852BB8F1BD050CE00F72EFB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0852BB8E1BD050CE00F72EFB /* fartometer.app */,
+				0852BB8E1BD050CE00F72EFB /* Fartometer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,6 +102,8 @@
 		0852BB901BD050CE00F72EFB /* fartometer */ = {
 			isa = PBXGroup;
 			children = (
+				0855D0931BE9535A00A3E1DC /* Helpers */,
+				0855D08B1BE93BD500A3E1DC /* Images */,
 				0852BBCB1BD0616800F72EFB /* Framework */,
 				0852BBAA1BD058FF00F72EFB /* Headers */,
 				0852BBA91BD0582000F72EFB /* ViewControllers */,
@@ -74,6 +112,7 @@
 				0852BB9D1BD050CF00F72EFB /* Assets.xcassets */,
 				0852BBA21BD050CF00F72EFB /* Info.plist */,
 				0852BB911BD050CE00F72EFB /* Supporting Files */,
+				0855D0941BE96D5A00A3E1DC /* Strings.strings */,
 			);
 			path = fartometer;
 			sourceTree = "<group>";
@@ -90,6 +129,10 @@
 			isa = PBXGroup;
 			children = (
 				0852BBAC1BD0593900F72EFB /* MainViewController.m */,
+				08A158A61BEA93C4005E232E /* DeviceDetailViewController.m */,
+				083C18F61BEBD9C600B2A4D5 /* MainTabBarController.m */,
+				083C18F91BEBE70E00B2A4D5 /* FartometerViewController.m */,
+				083C18FC1BEBE72600B2A4D5 /* FartometerDetailViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -97,7 +140,14 @@
 		0852BBAA1BD058FF00F72EFB /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				08A158A21BEA847E005E232E /* BLEHelper.h */,
+				0855D0961BE96FAA00A3E1DC /* SessionHelper.h */,
+				0855D0901BE9533C00A3E1DC /* FacebookHelper.h */,
 				0852BBAB1BD0593900F72EFB /* MainViewController.h */,
+				08A158A51BEA93C4005E232E /* DeviceDetailViewController.h */,
+				083C18F51BEBD9C600B2A4D5 /* MainTabBarController.h */,
+				083C18F81BEBE70E00B2A4D5 /* FartometerViewController.h */,
+				083C18FB1BEBE72600B2A4D5 /* FartometerDetailViewController.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -105,6 +155,8 @@
 		0852BBCB1BD0616800F72EFB /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				08C6830F1BE7ECFA00818CDD /* BLE_Framework */,
+				0853394D1BE7EC8900F6F509 /* CoreBluetooth.framework */,
 				0852BBCC1BD061CD00F72EFB /* FBSDKCoreKit.framework */,
 				0852BBCD1BD061CD00F72EFB /* FBSDKLoginKit.framework */,
 				0852BBCE1BD061CD00F72EFB /* FBSDKShareKit.framework */,
@@ -112,12 +164,42 @@
 			name = Framework;
 			sourceTree = "<group>";
 		};
+		0855D08B1BE93BD500A3E1DC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				083C18FE1BEC076C00B2A4D5 /* fartometer-obj.png */,
+				083C18FF1BEC076C00B2A4D5 /* fartometer-obj-arrow.png */,
+				0855D08C1BE93BF500A3E1DC /* fart-img.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		0855D0931BE9535A00A3E1DC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0855D0971BE96FAA00A3E1DC /* SessionHelper.m */,
+				0855D0911BE9533C00A3E1DC /* FacebookHelper.m */,
+				08A158A31BEA847E005E232E /* BLEHelper.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		08C6830F1BE7ECFA00818CDD /* BLE_Framework */ = {
+			isa = PBXGroup;
+			children = (
+				08C683101BE7ED1100818CDD /* BLE.h */,
+				08C683111BE7ED1100818CDD /* BLE.m */,
+				08C683121BE7ED1100818CDD /* BLEDefines.h */,
+			);
+			name = BLE_Framework;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0852BB8D1BD050CE00F72EFB /* fartometer */ = {
+		0852BB8D1BD050CE00F72EFB /* Fartometer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0852BBA51BD050CF00F72EFB /* Build configuration list for PBXNativeTarget "fartometer" */;
+			buildConfigurationList = 0852BBA51BD050CF00F72EFB /* Build configuration list for PBXNativeTarget "Fartometer" */;
 			buildPhases = (
 				0852BB8A1BD050CE00F72EFB /* Sources */,
 				0852BB8B1BD050CE00F72EFB /* Frameworks */,
@@ -127,9 +209,9 @@
 			);
 			dependencies = (
 			);
-			name = fartometer;
+			name = Fartometer;
 			productName = fartometer;
-			productReference = 0852BB8E1BD050CE00F72EFB /* fartometer.app */;
+			productReference = 0852BB8E1BD050CE00F72EFB /* Fartometer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -160,7 +242,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0852BB8D1BD050CE00F72EFB /* fartometer */,
+				0852BB8D1BD050CE00F72EFB /* Fartometer */,
 			);
 		};
 /* End PBXProject section */
@@ -170,8 +252,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				083C19051BEC076C00B2A4D5 /* fartometer-obj-arrow.png in Resources */,
 				0852BB9E1BD050CF00F72EFB /* Assets.xcassets in Resources */,
+				0855D0951BE96D5A00A3E1DC /* Strings.strings in Resources */,
+				0855D08E1BE93BF500A3E1DC /* fart-img.png in Resources */,
 				0852BBB51BD05C8100F72EFB /* Default-568h@2x.png in Resources */,
+				083C19041BEC076C00B2A4D5 /* fartometer-obj.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,9 +268,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0855D0981BE96FAA00A3E1DC /* SessionHelper.m in Sources */,
+				08A158A71BEA93C4005E232E /* DeviceDetailViewController.m in Sources */,
+				0855D0921BE9533C00A3E1DC /* FacebookHelper.m in Sources */,
 				0852BB961BD050CF00F72EFB /* AppDelegate.m in Sources */,
+				083C18FD1BEBE72600B2A4D5 /* FartometerDetailViewController.m in Sources */,
 				0852BBAD1BD0593900F72EFB /* MainViewController.m in Sources */,
 				0852BB931BD050CF00F72EFB /* main.m in Sources */,
+				083C18F71BEBD9C600B2A4D5 /* MainTabBarController.m in Sources */,
+				083C18FA1BEBE70E00B2A4D5 /* FartometerViewController.m in Sources */,
+				08C683131BE7ED1100818CDD /* BLE.m in Sources */,
+				08A158A41BEA847E005E232E /* BLEHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +380,7 @@
 				INFOPLIST_FILE = fartometer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ideiadoluiz.fartometer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Fartometer;
 			};
 			name = Debug;
 		};
@@ -302,7 +396,7 @@
 				INFOPLIST_FILE = fartometer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ideiadoluiz.fartometer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Fartometer;
 			};
 			name = Release;
 		};
@@ -318,13 +412,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0852BBA51BD050CF00F72EFB /* Build configuration list for PBXNativeTarget "fartometer" */ = {
+		0852BBA51BD050CF00F72EFB /* Build configuration list for PBXNativeTarget "Fartometer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0852BBA61BD050CF00F72EFB /* Debug */,
 				0852BBA71BD050CF00F72EFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

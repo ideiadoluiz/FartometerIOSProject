@@ -17,4 +17,5 @@
 "app_name" = "Fartometer";
 "devices" = "BLE Devices";
 "device_name_label" = "Device name: ";
+"refresh_devices" = "Refresh Devices";
 
