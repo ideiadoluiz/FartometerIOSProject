@@ -15,10 +15,13 @@
 - (void) deviceDidScanBluetooth:(NSArray *)peripherals;
 - (void) deviceDidChangeConnectionState:(BOOL)isConnected;
 - (void) couldNotConnectToDevice;
+- (void) deviceDidReceiveData:(NSString *)data;
 
 @end
 
 @interface BLEHelper : NSObject
+
+typedef enum {CMD_START, CMD_STOP} BLE_COMMAND;
 
 + (instancetype) sharedInstance;
 
@@ -26,5 +29,6 @@
 @property (nonatomic, readonly) BOOL isConnected;
 - (BOOL) startBLEShieldScan;
 - (void) connectToDevice:(CBPeripheral *)device;
+- (void) sendCommand:(BLE_COMMAND)command;
 
 @end

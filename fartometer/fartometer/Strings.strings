@@ -18,4 +18,6 @@
 "devices" = "BLE Devices";
 "device_name_label" = "Device name: ";
 "refresh_devices" = "Refresh Devices";
-
+"fart" = "Fart!";
+"history" = "History";
+"start" = "Start";

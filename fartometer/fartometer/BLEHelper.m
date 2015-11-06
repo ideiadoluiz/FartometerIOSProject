@@ -136,7 +136,24 @@
 
 - (void)bleDidReceiveData:(unsigned char *)data length:(int)length
 {
-    
+    if ([self.delegate respondsToSelector:@selector(deviceDidReceiveData:)])
+    {
+        NSData *d = [NSData dataWithBytes:data length:length];
+        NSString *s = [[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding];
+        [self.delegate deviceDidReceiveData:s];
+    }
+}
+
+- (void) sendCommand:(BLE_COMMAND)command
+{
+    switch (command) {
+        case CMD_START:
+            [self.bleShield write:[@"cmd_start" dataUsingEncoding:NSUTF8StringEncoding]];
+            break;
+        case CMD_STOP:
+            [self.bleShield write:[@"cmd_stop" dataUsingEncoding:NSUTF8StringEncoding]];
+            break;
+    }
 }
 
 @end

@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol FartometerSensorDelegate <NSObject>
+
+- (void) doneUpdatingSensors;
+
+@end
+
 @interface FartometerViewController : UIViewController
+
+@property (weak) id <FartometerSensorDelegate> delegate;
+@property (nonatomic, readonly) BOOL isUpdating;
+- (void) startUpdatingSensors;
+- (void) newData:(NSString *)string;
 
 @end
