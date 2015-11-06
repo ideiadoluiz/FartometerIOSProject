@@ -37,11 +37,6 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor orangeColor]}];
     
     [self createViews];
-    
-    // Handle LogIn status changed
-    [FacebookHelper sharedInstance].delegate = self;
-    
-    [BLEHelper sharedInstance].delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -52,6 +47,10 @@
         [self bluetoothButtonClicked];
         self.shouldRefreshBluetoothDevices = false;
     }
+    
+    // Handle LogIn status changed
+    [FacebookHelper sharedInstance].delegate = self;
+    [BLEHelper sharedInstance].delegate = self;
     
     [super viewWillAppear:animated];
 }
@@ -65,7 +64,7 @@
     UIImage *img = [UIImage imageNamed:@"fart-img.png"];
     
     // my image is a square, be careful when scaling images, though :)
-    img = self.view.frame.size.width <= img.size.width ? [SessionHelper imageWithImage:img scaledToSize:CGSizeMake(self.view.frame.size.width * 0.8, self.view.frame.size.width * 0.8)]: img;
+    img = self.view.frame.size.width <= img.size.width ? [[SessionHelper sharedInstance] imageWithImage:img scaledToSize:CGSizeMake(self.view.frame.size.width * 0.8, self.view.frame.size.width * 0.8)]: img;
     self.imgView = [[UIImageView alloc] initWithImage:img];
     [self createFacebookButton];
     [self createBluetoothButton];

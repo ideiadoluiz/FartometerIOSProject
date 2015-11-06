@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 
 @protocol BLEHelperDelegate <NSObject>
 
+@optional
 - (void) deviceDidScanBluetooth:(NSArray *)peripherals;
+- (void) deviceDidChangeConnectionState:(BOOL)isConnected;
+- (void) couldNotConnectToDevice;
 
 @end
 
@@ -19,6 +23,8 @@
 + (instancetype) sharedInstance;
 
 @property (weak) id <BLEHelperDelegate> delegate;
+@property (nonatomic, readonly) BOOL isConnected;
 - (BOOL) startBLEShieldScan;
+- (void) connectToDevice:(CBPeripheral *)device;
 
 @end

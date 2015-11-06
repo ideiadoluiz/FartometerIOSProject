@@ -9,10 +9,11 @@
 #import "DeviceDetailViewController.h"
 #import "SessionHelper.h"
 #import "MainTabBarController.h"
+#import "BLEHelper.h"
 
 #import <CoreBluetooth/CoreBluetooth.h>
 
-@interface DeviceDetailViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface DeviceDetailViewController () <UITableViewDelegate, UITableViewDataSource, BLEHelperDelegate>
 
 @property (nonatomic, weak) NSArray *peripherals;
 @property (nonatomic) UITableView *tableView;
@@ -60,6 +61,11 @@
     [self.view addSubview:self.tableView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [BLEHelper sharedInstance].delegate = self;
+    [super viewWillAppear:animated];
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -135,9 +141,24 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.navigationController pushViewController:[MainTabBarController new]  animated:NO];
+    [self doConnectionWithPeripheral:self.peripherals[indexPath.row]];
 }
 
+- (void) doConnectionWithPeripheral:(CBPeripheral *)peripheral
+{
+     [[BLEHelper sharedInstance] connectToDevice:peripheral];
+}
+
+- (void)couldNotConnectToDevice
+{
+    [[SessionHelper sharedInstance] gotoMainViewControllerWithNavigationController:self.navigationController shouldRefreshBluetoothDevices:YES];
+}
+
+- (void)deviceDidChangeConnectionState:(BOOL)isConnected
+{
+    if (isConnected)
+        [self.navigationController pushViewController:[MainTabBarController new]  animated:NO];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

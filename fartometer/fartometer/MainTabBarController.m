@@ -7,7 +7,6 @@
 //
 
 #import "MainTabBarController.h"
-#import "MainViewController.h"
 #import "SessionHelper.h"
 #import "FartometerViewController.h"
 #import "FartometerDetailViewController.h"
@@ -47,14 +46,7 @@
 
 - (void) onBackButtonTapped:(id)sender
 {
-    NSMutableArray *allViewControllers = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
-    for (UIViewController *aViewController in allViewControllers) {
-        if ([aViewController isKindOfClass:[MainViewController class]])
-        {
-            ((MainViewController *)aViewController).shouldRefreshBluetoothDevices = true;
-            [self.navigationController popToViewController:aViewController animated:NO];
-        }
-    }
+    [[SessionHelper sharedInstance] gotoMainViewControllerWithNavigationController:self.navigationController shouldRefreshBluetoothDevices:YES];
 }
 
 - (void)didReceiveMemoryWarning {

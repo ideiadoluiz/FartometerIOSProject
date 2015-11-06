@@ -65,13 +65,13 @@
     
     int startScanning = [self.bleShield findBLEPeripherals:3];
     
-    [NSTimer scheduledTimerWithTimeInterval:(float)3.0 target:self selector:@selector(connectionTimer:) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:(float)3.0 target:self selector:@selector(scanTimer:) userInfo:nil repeats:NO];
     
     return startScanning == 0;
 }
 
 // Called when scan period is over
--(void) connectionTimer:(NSTimer *)timer
+-(void) scanTimer:(NSTimer *)timer
 {
     if(self.bleShield.peripherals.count > 0)
     {
@@ -94,6 +94,49 @@
     {
         [self.delegate deviceDidScanBluetooth:self.mPeripherals];
     }
+}
+
+- (BOOL) isConnected
+{
+    return self.bleShield.isConnected;
+}
+
+-(void) connectionTimer:(NSTimer *)timer
+{
+    if (!self.bleShield.isConnected)
+    {
+        if ([self.delegate respondsToSelector:@selector(couldNotConnectToDevice)])
+        {
+            [self.delegate couldNotConnectToDevice];
+        }
+    }
+}
+
+- (void) connectToDevice:(CBPeripheral *)device
+{
+    [self.bleShield connectPeripheral:device];
+    [NSTimer scheduledTimerWithTimeInterval:(float)3.0 target:self selector:@selector(connectionTimer:) userInfo:nil repeats:NO];
+}
+
+- (void)bleDidConnect
+{
+    if ([self.delegate respondsToSelector:@selector(deviceDidChangeConnectionState:)])
+    {
+        [self.delegate deviceDidChangeConnectionState:YES];
+    }
+}
+
+- (void)bleDidDisconnect
+{
+    if ([self.delegate respondsToSelector:@selector(deviceDidChangeConnectionState:)])
+    {
+        [self.delegate deviceDidChangeConnectionState:NO];
+    }
+}
+
+- (void)bleDidReceiveData:(unsigned char *)data length:(int)length
+{
+    
 }
 
 @end

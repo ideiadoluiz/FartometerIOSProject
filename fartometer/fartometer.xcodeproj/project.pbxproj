@@ -177,9 +177,9 @@
 		0855D0931BE9535A00A3E1DC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				08A158A31BEA847E005E232E /* BLEHelper.m */,
 				0855D0971BE96FAA00A3E1DC /* SessionHelper.m */,
 				0855D0911BE9533C00A3E1DC /* FacebookHelper.m */,
-				08A158A31BEA847E005E232E /* BLEHelper.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";

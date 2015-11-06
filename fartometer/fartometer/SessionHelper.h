@@ -17,8 +17,9 @@
 @property (nonatomic, readonly) BOOL isDebugging;
 
 + (instancetype) sharedInstance;
-+ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
 
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
 - (NSString *) getLocalizedStringForName:(NSString *)stringName;
+- (void) gotoMainViewControllerWithNavigationController:(UINavigationController *)navController shouldRefreshBluetoothDevices:(BOOL)shouldRefresh;
 
 @end
