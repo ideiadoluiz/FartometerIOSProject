@@ -61,11 +61,6 @@
     return [self.dicStrings objectForKey:stringName];
 }
 
-- (BOOL) isDebugging
-{
-    return YES;
-}
-
 - (void) gotoMainViewControllerWithNavigationController:(UINavigationController *)navController shouldRefreshBluetoothDevices:(BOOL)shouldRefresh
 {
     NSMutableArray *allViewControllers = [NSMutableArray arrayWithArray:[navController viewControllers]];
@@ -76,6 +71,11 @@
             [navController popToViewController:aViewController animated:NO];
         }
     }
+}
+
+- (BOOL) isDebugging
+{
+    return NO;
 }
 
 @end

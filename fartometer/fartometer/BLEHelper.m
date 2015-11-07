@@ -13,6 +13,7 @@
 
 @property (nonatomic) BLE *bleShield;
 @property (nonatomic) NSMutableArray *mPeripherals;
+@property (nonatomic) BOOL connectionWasCancelledByTheSystem;
 
 @end
 
@@ -53,6 +54,7 @@
     {
         if(self.bleShield.activePeripheral.state == CBPeripheralStateConnected)
         {
+            self.connectionWasCancelledByTheSystem = true;
             [[self.bleShield CM] cancelPeripheralConnection:[self.bleShield activePeripheral]];
         }
     }
@@ -120,6 +122,12 @@
 
 - (void)bleDidConnect
 {
+    if (self.connectionWasCancelledByTheSystem)
+    {
+        self.connectionWasCancelledByTheSystem = false;
+        return;
+    }
+    
     if ([self.delegate respondsToSelector:@selector(deviceDidChangeConnectionState:)])
     {
         [self.delegate deviceDidChangeConnectionState:YES];
