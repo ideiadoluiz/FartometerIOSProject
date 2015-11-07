@@ -52,6 +52,8 @@
     [FacebookHelper sharedInstance].delegate = self;
     [BLEHelper sharedInstance].delegate = self;
     
+    [FacebookHelper sharedInstance].enableUpdatesOnAccessTokenChange = YES;
+    
     [super viewWillAppear:animated];
 }
 

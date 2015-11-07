@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class FBSDKProfilePictureView;
 
 @protocol FacebookHelperDelegate <NSObject>
 
@@ -19,7 +20,10 @@
 + (instancetype) sharedInstance;
 
 @property (weak) id <FacebookHelperDelegate> delegate;
-@property (nonatomic) BOOL isLoggedIn;
+@property (nonatomic, readonly) BOOL isLoggedIn;
+@property (nonatomic) BOOL enableUpdatesOnAccessTokenChange;
+@property (nonatomic, readonly) NSString *nameUserFacebook;
+@property (nonatomic, readonly) FBSDKProfilePictureView *picUserFacebook;
 
 - (void)loginButtonClicked;
 

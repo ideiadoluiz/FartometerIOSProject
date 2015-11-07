@@ -157,7 +157,9 @@
 - (void)deviceDidChangeConnectionState:(BOOL)isConnected
 {
     if (isConnected)
+    {
         [self.navigationController pushViewController:[MainTabBarController new]  animated:NO];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

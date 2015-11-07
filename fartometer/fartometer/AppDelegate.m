@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "FartometerViewController.h"
+#import "SessionHelper.h"
+#import "FartCodingStoreHelper.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <UIKit/UIKit.h>
@@ -38,6 +40,15 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    BOOL success = [[FartCodingStoreHelper sharedInstance] saveChanges];
+    if ([[SessionHelper sharedInstance] isDebugging])
+    {
+        if (success)
+            NSLog(@"Store saved.");
+        else
+            NSLog(@"Store couldn't be saved.");
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

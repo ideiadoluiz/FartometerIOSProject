@@ -68,6 +68,9 @@
                  }
              }
              
+             if (!error && !result.isCancelled)
+                 [self getFacebookProfileInfo];
+             
              [self statusChanged];
          }];
     }
@@ -81,6 +84,28 @@
     }
 }
 
+- (void) getFacebookProfileInfo
+{
+    FBSDKGraphRequest *requestMe = [[FBSDKGraphRequest alloc]initWithGraphPath:@"me" parameters:nil];
+    FBSDKGraphRequestConnection *connection = [[FBSDKGraphRequestConnection alloc] init];
+    
+    [connection addRequest:requestMe completionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error)
+    {
+        if(result)
+        {
+            if ([result objectForKey:@"name"])
+                _nameUserFacebook = [result objectForKey:@"name"];
+            
+            _picUserFacebook = [[FBSDKProfilePictureView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+            [_picUserFacebook setProfileID:[result objectForKey:@"id"]];
+            [_picUserFacebook setPictureMode:FBSDKProfilePictureModeSquare];
+        }
+        
+    }];
+    
+    [connection start];
+}
+
 - (void) statusChanged
 {
     if ([self.delegate respondsToSelector:@selector(loginStatusDidChange:)])
@@ -92,6 +117,12 @@
 - (BOOL) isLoggedIn
 {
     return  [FBSDKAccessToken currentAccessToken] != nil;
+}
+
+- (void) setEnableUpdatesOnAccessTokenChange:(BOOL)enableUpdatesOnAccessTokenChange
+{
+    _enableUpdatesOnAccessTokenChange = enableUpdatesOnAccessTokenChange;
+    [FBSDKProfile enableUpdatesOnAccessTokenChange:enableUpdatesOnAccessTokenChange];
 }
 
 @end

@@ -8,6 +8,10 @@
 
 #import "FartometerViewController.h"
 #import "SessionHelper.h"
+#import "FartCoding.h"
+#import "FartCodingStoreHelper.h"
+#import "BLEHelper.h"
+#import "FacebookHelper.h"
 
 @interface FartometerViewController ()
 
@@ -15,6 +19,7 @@
 
 @property (nonatomic) CGFloat lastAngle;
 @property (nonatomic) BOOL isAnimating;
+@property (nonatomic) int maxMetValue;
 
 @end
 
@@ -43,7 +48,7 @@
     CGFloat widthArrow = imgArrow.size.width * proportionImgToScreen;
     CGFloat heightArrow = imgArrow.size.height * proportionImgToScreen;
     self.imgViewArrow = [[UIImageView alloc] initWithImage:[[SessionHelper sharedInstance] imageWithImage:imgArrow scaledToSize:CGSizeMake(widthArrow, heightArrow)]];
-    self.imgViewArrow.center = CGPointMake(imgViewFartometer.center.x, imgViewFartometer.center.y);//imgViewFartometer.center.y + (heightArrow / 3.5)); // 3.5 is the approximately proportion of the arrow's circle
+    self.imgViewArrow.center = CGPointMake(imgViewFartometer.center.x, imgViewFartometer.center.y);
     [self.view addSubview:self.imgViewArrow];
 }
 
@@ -54,12 +59,42 @@
         [self.delegate doneUpdatingSensors];
     }
     _isUpdating = false;
+    [self showMessageWithMaxValue];
+}
+
+- (void) showMessageWithMaxValue
+{
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:[[SessionHelper sharedInstance] getLocalizedStringForName:@"fart_score"]
+                                                                   message:[NSString stringWithFormat:[[SessionHelper sharedInstance] getLocalizedStringForName:@"msg_fart_score"], self.maxMetValue]
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:[[SessionHelper sharedInstance] getLocalizedStringForName:@"save_it"] style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action)
+                                                          {
+                                                              [self saveFart];
+                                                          }];
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:[[SessionHelper sharedInstance] getLocalizedStringForName:@"try_again"] style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void) saveFart
+{
+    CBPeripheral *peripheral = [BLEHelper sharedInstance].currentPeripheral;
+    NSString *namePerson = [FacebookHelper sharedInstance].nameUserFacebook;
+    
+    FartCoding *fart = [[FartCoding alloc] initWithKey:[peripheral.identifier UUIDString] nameDevice:peripheral.name namePerson:namePerson picPerson:[FacebookHelper sharedInstance].picUserFacebook methaneValue:self.maxMetValue andDate:[NSDate date]];
+    
+    [[FartCodingStoreHelper sharedInstance] createNewFartData:fart];
 }
 
 - (void) startUpdatingSensors
 {
     _isUpdating = true;
-    [NSTimer scheduledTimerWithTimeInterval:(float)10.0 target:self selector:@selector(connectionTimer:) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:(float)20.0 target:self selector:@selector(connectionTimer:) userInfo:nil repeats:NO];
 }
 
 - (void) newData:(NSString *)string
@@ -70,6 +105,7 @@
         int currentMetValue = [[string substringFromIndex:4] intValue];
         CGFloat rotateAngle = [self getAngleFartometer:currentMetValue];
         self.imgViewArrow.transform = CGAffineTransformRotate(self.imgViewArrow.transform, rotateAngle);
+        self.maxMetValue = currentMetValue > self.maxMetValue ? currentMetValue : self.maxMetValue;
     }
 }
 

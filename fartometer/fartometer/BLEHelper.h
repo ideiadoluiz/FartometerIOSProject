@@ -27,6 +27,7 @@ typedef enum {CMD_START, CMD_STOP} BLE_COMMAND;
 
 @property (weak) id <BLEHelperDelegate> delegate;
 @property (nonatomic, readonly) BOOL isConnected;
+@property (nonatomic, readonly) CBPeripheral *currentPeripheral;
 - (BOOL) startBLEShieldScan;
 - (void) connectToDevice:(CBPeripheral *)device;
 - (void) sendCommand:(BLE_COMMAND)command;

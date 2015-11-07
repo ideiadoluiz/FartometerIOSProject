@@ -164,4 +164,9 @@
     }
 }
 
+- (CBPeripheral *) currentPeripheral
+{
+    return self.bleShield.activePeripheral;
+}
+
 @end

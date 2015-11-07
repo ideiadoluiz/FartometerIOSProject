@@ -12,6 +12,7 @@
 "scan_failed" = "BLE Scan failed";
 "check_scan" = "Please check if your bluetooth is connected.";
 "ok" = "OK";
+"cancel" = "Cancel";
 "ble_not_found" = "BLE device not found";
 "ble_not_found_desc" = "Please check if your BLE device is working properly.";
 "app_name" = "Fartometer";
@@ -21,3 +22,7 @@
 "fart" = "Fart!";
 "history" = "History";
 "start" = "Start";
+"fart_score" = "Fart Score";
+"msg_fart_score" = "The max concentration of methane in your fart was %d ppm.";
+"save_it" = "Save it!";
+"try_again" = "Try again";
