@@ -17,14 +17,14 @@
     NSString *keyDevice = [aDecoder decodeObjectForKey:@"key"];
     NSString *nameDevice = [aDecoder decodeObjectForKey:@"nameDevice"];
     NSString *namePerson = [aDecoder decodeObjectForKey:@"namePerson"];
-    FBSDKProfilePictureView *picPerson = [aDecoder decodeObjectForKey:@"picPerson"];
+    NSString *idPerson = [aDecoder decodeObjectForKey:@"idPerson"];
     int methaneValue = [aDecoder decodeIntForKey:@"methaneValue"];
     NSDate *date = [aDecoder decodeObjectForKey:@"date"];
     
-    return [self initWithKey:keyDevice nameDevice:nameDevice namePerson:namePerson picPerson:picPerson methaneValue:methaneValue andDate:date];
+    return [self initWithKey:keyDevice nameDevice:nameDevice namePerson:namePerson idPerson:idPerson methaneValue:methaneValue andDate:date];
 }
 
-- (instancetype) initWithKey:(NSString *)key nameDevice:(NSString *)nameDevice namePerson:(NSString *)namePerson picPerson:(FBSDKProfilePictureView *)picPerson methaneValue:(int)metValue andDate:(NSDate *)date;
+- (instancetype) initWithKey:(NSString *)key nameDevice:(NSString *)nameDevice namePerson:(NSString *)namePerson idPerson:(NSString *)idPerson methaneValue:(int)metValue andDate:(NSDate *)date;
 {
     self = [super init];
     if (self)
@@ -32,7 +32,7 @@
         _keyDevice = key;
         _nameDevice = nameDevice;
         _namePerson = namePerson;
-        _picPerson = picPerson;
+        _idPerson = idPerson;
         _methaneValue = metValue;
         _date = date;
     }
@@ -44,8 +44,8 @@
 {
     [aCoder encodeObject:self.keyDevice forKey:@"key"];
     [aCoder encodeObject:self.nameDevice forKey:@"nameDevice"];
-    [aCoder encodeObject:self.nameDevice forKey:@"namePerson"];
-    [aCoder encodeObject:self.nameDevice forKey:@"picPerson"];
+    [aCoder encodeObject:self.namePerson forKey:@"namePerson"];
+    [aCoder encodeObject:self.idPerson forKey:@"idPerson"];
     [aCoder encodeObject:self.date forKey:@"date"];
     [aCoder encodeInt:self.methaneValue forKey:@"methaneValue"];
 }

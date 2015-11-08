@@ -64,8 +64,14 @@
 
 - (void) showMessageWithMaxValue
 {
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:[[SessionHelper sharedInstance] getLocalizedStringForName:@"fart_score"]
-                                                                   message:[NSString stringWithFormat:[[SessionHelper sharedInstance] getLocalizedStringForName:@"msg_fart_score"], self.maxMetValue]
+    FartCoding *fartObj = [[FartCoding alloc] initWithKey:nil nameDevice:nil namePerson:nil idPerson:nil methaneValue:self.maxMetValue andDate:nil];
+    NSString *fartStrength = [[SessionHelper sharedInstance] getStringWithFart:fartObj];
+    NSString *fartAKAStrength = [[SessionHelper sharedInstance] getAKAStringWithFart:fartObj];
+    NSString *msgFart = [NSString stringWithFormat:[[SessionHelper sharedInstance] getLocalizedStringForName:@"msg_fart_score"], fartAKAStrength, self.maxMetValue];
+    NSString *msgFartScore = [NSString stringWithFormat:[[SessionHelper sharedInstance] getLocalizedStringForName:@"fart_score" ], fartStrength];
+    
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:msgFartScore
+                                                                   message:msgFart
                                                             preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:[[SessionHelper sharedInstance] getLocalizedStringForName:@"save_it"] style:UIAlertActionStyleDefault
@@ -85,8 +91,9 @@
 {
     CBPeripheral *peripheral = [BLEHelper sharedInstance].currentPeripheral;
     NSString *namePerson = [FacebookHelper sharedInstance].nameUserFacebook;
+    NSString *idPerson = [FacebookHelper sharedInstance].idUserFacebook;
     
-    FartCoding *fart = [[FartCoding alloc] initWithKey:[peripheral.identifier UUIDString] nameDevice:peripheral.name namePerson:namePerson picPerson:[FacebookHelper sharedInstance].picUserFacebook methaneValue:self.maxMetValue andDate:[NSDate date]];
+    FartCoding *fart = [[FartCoding alloc] initWithKey:[peripheral.identifier UUIDString] nameDevice:peripheral.name namePerson:namePerson idPerson:idPerson methaneValue:self.maxMetValue andDate:[NSDate date]];
     
     [[FartCodingStoreHelper sharedInstance] createNewFartData:fart];
 }
@@ -94,6 +101,7 @@
 - (void) startUpdatingSensors
 {
     _isUpdating = true;
+    _maxMetValue = 0;
     [NSTimer scheduledTimerWithTimeInterval:(float)20.0 target:self selector:@selector(connectionTimer:) userInfo:nil repeats:NO];
 }
 
@@ -114,8 +122,8 @@
     CGFloat startPositionArrow = M_PI_4;
     CGFloat endPositionArrow = ((3 * M_PI / 2) + M_PI_4);
     // a weak fart is about 60ppm, while an average is 110ppm, so I'm setting 160ppm as a very strong fart
-    CGFloat MAX_VALUE = 160;
-    CGFloat MIN_VALUE = 60;
+    CGFloat MAX_VALUE = FART_MAX_VALUE;
+    CGFloat MIN_VALUE = FART_MIN_VALUE;
     
     CGFloat angle = 0;
     

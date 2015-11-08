@@ -41,6 +41,7 @@
         NSString *path = [self itemArchivePath];
         _arrPrivate = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
         
+        
         if (!_arrPrivate)
             _arrPrivate = [[NSMutableArray alloc] init];
     }
@@ -67,9 +68,14 @@
 
 - (NSArray<FartCoding *> *) getFartsForKey:(NSString *)key
 {
-    NSPredicate *bPredicate = [NSPredicate predicateWithFormat:@"key == %@", key];
-    return [self.arrPrivate filteredArrayUsingPredicate:bPredicate];
+    NSArray *arr = [self.arrPrivate filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        NSString *str = ((FartCoding *)evaluatedObject).keyDevice;
+        return [str isEqualToString:key];
+    }]];
     
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date"
+                                                 ascending:NO];
+    return  [arr sortedArrayUsingDescriptors:@[sortDescriptor]];
 }
 
 

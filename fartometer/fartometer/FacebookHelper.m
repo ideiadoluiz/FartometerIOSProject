@@ -96,14 +96,22 @@
             if ([result objectForKey:@"name"])
                 _nameUserFacebook = [result objectForKey:@"name"];
             
-            _picUserFacebook = [[FBSDKProfilePictureView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
-            [_picUserFacebook setProfileID:[result objectForKey:@"id"]];
-            [_picUserFacebook setPictureMode:FBSDKProfilePictureModeSquare];
+            if ([result objectForKey:@"id"])
+                _idUserFacebook = [result objectForKey:@"id"];
         }
         
     }];
     
     [connection start];
+}
+
+- (FBSDKProfilePictureView *) getFacebookProfilePictureWithId:(NSString *)fbID
+{
+    FBSDKProfilePictureView *fbPPView = [[FBSDKProfilePictureView alloc] initWithFrame:FART_FB_PROFILE_PIC_FRAME];
+    [fbPPView setProfileID:fbID];
+    [fbPPView setPictureMode:FBSDKProfilePictureModeSquare];
+    
+    return fbPPView;
 }
 
 - (void) statusChanged

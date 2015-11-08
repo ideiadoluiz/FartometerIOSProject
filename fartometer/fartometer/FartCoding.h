@@ -14,10 +14,10 @@
 @property (nonatomic, readonly) NSString *keyDevice;
 @property (nonatomic, readonly) NSString *nameDevice;
 @property (nonatomic, readonly) NSString *namePerson;
-@property (nonatomic, readonly) FBSDKProfilePictureView *picPerson;
+@property (nonatomic, readonly) NSString *idPerson;
 @property (nonatomic, readonly) int methaneValue;
 @property (nonatomic, readonly) NSDate *date;
 
-- (instancetype) initWithKey:(NSString *)key nameDevice:(NSString *)nameDevice namePerson:(NSString *)namePerson picPerson:(FBSDKProfilePictureView *)picPerson methaneValue:(int)metValue andDate:(NSDate *)date;
+- (instancetype) initWithKey:(NSString *)key nameDevice:(NSString *)nameDevice namePerson:(NSString *)namePerson idPerson:(NSString *)idPerson methaneValue:(int)metValue andDate:(NSDate *)date;
 
 @end

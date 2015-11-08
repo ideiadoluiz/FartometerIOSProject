@@ -8,6 +8,7 @@
 
 #import "SessionHelper.h"
 #import "MainViewController.h"
+#import "FartCoding.h"
 
 @interface SessionHelper ()
 
@@ -71,6 +72,72 @@
             [navController popToViewController:aViewController animated:NO];
         }
     }
+}
+
+- (UIColor *) getTextColorWithFart:(FartCoding *)fart
+{
+    CGFloat range = FART_MAX_VALUE - FART_MIN_VALUE;
+    
+    if (fart.methaneValue <=  (range / 3) + FART_MIN_VALUE)
+        return [self darkerColorForColor:[UIColor greenColor]];
+    else if (fart.methaneValue <= (range / 3 * 2) + FART_MIN_VALUE)
+        return [self darkerColorForColor:[UIColor yellowColor]];
+    else
+        return [UIColor redColor];
+}
+
+- (NSString *)getStringWithFart:(FartCoding *)fart
+{
+    CGFloat range = FART_MAX_VALUE - FART_MIN_VALUE;
+    
+    if (fart.methaneValue <= FART_MIN_VALUE)
+        return [self getLocalizedStringForName:@"msg_very_weak"];
+    else if (fart.methaneValue <= (range / 3) + FART_MIN_VALUE)
+        return [self getLocalizedStringForName:@"msg_weak"];
+    else if (fart.methaneValue <= (range / 3 * 2) + FART_MIN_VALUE)
+        return [self getLocalizedStringForName:@"msg_regular"];
+    else if (fart.methaneValue <= range + FART_MIN_VALUE)
+        return [self getLocalizedStringForName:@"msg_strong"];
+    else
+        return [self getLocalizedStringForName:@"msg_very_strong"];
+}
+
+- (NSString *)getAKAStringWithFart:(FartCoding *)fart
+{
+    CGFloat range = FART_MAX_VALUE - FART_MIN_VALUE;
+    
+    if (fart.methaneValue <= FART_MIN_VALUE)
+        return [self getLocalizedStringForName:@"msg_fresh_air"];
+    else if (fart.methaneValue <= (range / 3) + FART_MIN_VALUE)
+        return [self getLocalizedStringForName:@"msg_little_poo"];
+    else if (fart.methaneValue <= (range / 3 * 2) + FART_MIN_VALUE)
+        return [self getLocalizedStringForName:@"msg_silent_bomb"];
+    else if (fart.methaneValue <= range + FART_MIN_VALUE)
+        return [self getLocalizedStringForName:@"msg_liquid_fart"];
+    else
+        return [self getLocalizedStringForName:@"msg_need_doctor"];
+}
+
+- (UIColor *)lighterColorForColor:(UIColor *)c
+{
+    CGFloat r, g, b, a;
+    if ([c getRed:&r green:&g blue:&b alpha:&a])
+        return [UIColor colorWithRed:MIN(r + 0.2, 1.0)
+                               green:MIN(g + 0.2, 1.0)
+                                blue:MIN(b + 0.2, 1.0)
+                               alpha:a];
+    return nil;
+}
+
+- (UIColor *)darkerColorForColor:(UIColor *)c
+{
+    CGFloat r, g, b, a;
+    if ([c getRed:&r green:&g blue:&b alpha:&a])
+        return [UIColor colorWithRed:MAX(r - 0.2, 0.0)
+                               green:MAX(g - 0.2, 0.0)
+                                blue:MAX(b - 0.2, 0.0)
+                               alpha:a];
+    return nil;
 }
 
 - (BOOL) isDebugging
