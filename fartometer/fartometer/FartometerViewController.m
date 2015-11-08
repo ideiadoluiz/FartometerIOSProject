@@ -21,6 +21,8 @@
 @property (nonatomic) BOOL isAnimating;
 @property (nonatomic) int maxMetValue;
 
+@property (nonatomic) UILabel *labelMethaneValue;
+
 @end
 
 @implementation FartometerViewController
@@ -32,6 +34,15 @@
     [super viewDidLoad];
     
     [self fillImages];
+    
+    if ([[SessionHelper sharedInstance] isDebugging])
+    {
+        self.labelMethaneValue = [[UILabel alloc] initWithFrame:FART_BTN_FRAME];
+        self.labelMethaneValue.center = CGPointMake(self.imgViewArrow.center.x, self.view.center.y + (self.imgViewArrow.frame.size.height / 2) - 20);
+        self.labelMethaneValue.text = @"0 ppm";
+        self.labelMethaneValue.textColor = FART_BLUE_COLOR_LINK;
+        [self.view addSubview:self.labelMethaneValue];
+    }
 }
 
 - (void) fillImages
@@ -132,12 +143,17 @@
     else if (methaneValue >= MAX_VALUE)
         angle = endPositionArrow;
     else
-        angle = methaneValue / MAX_VALUE * endPositionArrow;
+        angle = (endPositionArrow - startPositionArrow) / (MAX_VALUE - MIN_VALUE) * (methaneValue - MIN_VALUE) + startPositionArrow; //((methaneValue - MIN_VALUE) / (MAX_VALUE - MIN_VALUE) * (endPositionArrow));
     
-    NSLog(@"%d %f %f", methaneValue, angle, self.lastAngle);
+    if ([[SessionHelper sharedInstance] isDebugging])
+    {
+        NSLog(@"%d %f %f", methaneValue, angle, self.lastAngle);
+        self.labelMethaneValue.text = [NSString stringWithFormat:@"%d ppm", methaneValue];
+    }
     
     // negative and positive is the direction of the rotation
-    CGFloat rotateAngle = fabs(angle) > fabs(self.lastAngle) ? (fabs(angle) - fabs(self.lastAngle)) : (fabs(self.lastAngle) - fabs(angle))  * -1;
+    CGFloat rotateAngle = fabs(angle) > fabs(self.lastAngle) ? (fabs(angle) - fabs(self.lastAngle)) : (fabs(self.lastAngle) - fabs(angle)) * -1;
+    
     
     self.lastAngle = angle;
     
