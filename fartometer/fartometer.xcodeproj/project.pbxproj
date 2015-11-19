@@ -26,6 +26,8 @@
 		0855D0981BE96FAA00A3E1DC /* SessionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0855D0971BE96FAA00A3E1DC /* SessionHelper.m */; };
 		08A158A41BEA847E005E232E /* BLEHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A158A31BEA847E005E232E /* BLEHelper.m */; };
 		08A158A71BEA93C4005E232E /* DeviceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A158A61BEA93C4005E232E /* DeviceDetailViewController.m */; };
+		08A466111BFD73EF00720092 /* FartCodingStoreHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A466101BFD73EF00720092 /* FartCodingStoreHelper.m */; };
+		08A466141BFD740200720092 /* FartCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A466131BFD740200720092 /* FartCoding.m */; };
 		08AB088F1BED556000D9D297 /* fartometer-obj-arrow2.png in Resources */ = {isa = PBXBuildFile; fileRef = 08AB088E1BED556000D9D297 /* fartometer-obj-arrow2.png */; };
 		08C683131BE7ED1100818CDD /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C683111BE7ED1100818CDD /* BLE.m */; };
 /* End PBXBuildFile section */
@@ -61,6 +63,10 @@
 		08A158A31BEA847E005E232E /* BLEHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEHelper.m; sourceTree = "<group>"; };
 		08A158A51BEA93C4005E232E /* DeviceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceDetailViewController.h; sourceTree = "<group>"; };
 		08A158A61BEA93C4005E232E /* DeviceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceDetailViewController.m; sourceTree = "<group>"; };
+		08A4660E1BFD739B00720092 /* FartCoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FartCoding.h; sourceTree = "<group>"; };
+		08A4660F1BFD739B00720092 /* FartCodingStoreHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FartCodingStoreHelper.h; sourceTree = "<group>"; };
+		08A466101BFD73EF00720092 /* FartCodingStoreHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FartCodingStoreHelper.m; sourceTree = "<group>"; };
+		08A466131BFD740200720092 /* FartCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FartCoding.m; sourceTree = "<group>"; };
 		08AB088E1BED556000D9D297 /* fartometer-obj-arrow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fartometer-obj-arrow2.png"; sourceTree = "<group>"; };
 		08C683101BE7ED1100818CDD /* BLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLE.h; sourceTree = "<group>"; };
 		08C683111BE7ED1100818CDD /* BLE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLE.m; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 		0852BB901BD050CE00F72EFB /* fartometer */ = {
 			isa = PBXGroup;
 			children = (
+				08A466121BFD73F400720092 /* Classes */,
 				0855D0931BE9535A00A3E1DC /* Helpers */,
 				0855D08B1BE93BD500A3E1DC /* Images */,
 				0852BBCB1BD0616800F72EFB /* Framework */,
@@ -148,6 +155,8 @@
 				083C18F51BEBD9C600B2A4D5 /* MainTabBarController.h */,
 				083C18F81BEBE70E00B2A4D5 /* FartometerViewController.h */,
 				083C18FB1BEBE72600B2A4D5 /* FartometerDetailViewController.h */,
+				08A4660E1BFD739B00720092 /* FartCoding.h */,
+				08A4660F1BFD739B00720092 /* FartCodingStoreHelper.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -180,8 +189,17 @@
 				08A158A31BEA847E005E232E /* BLEHelper.m */,
 				0855D0971BE96FAA00A3E1DC /* SessionHelper.m */,
 				0855D0911BE9533C00A3E1DC /* FacebookHelper.m */,
+				08A466101BFD73EF00720092 /* FartCodingStoreHelper.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		08A466121BFD73F400720092 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				08A466131BFD740200720092 /* FartCoding.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		08C6830F1BE7ECFA00818CDD /* BLE_Framework */ = {
@@ -268,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08A466111BFD73EF00720092 /* FartCodingStoreHelper.m in Sources */,
 				0855D0981BE96FAA00A3E1DC /* SessionHelper.m in Sources */,
 				08A158A71BEA93C4005E232E /* DeviceDetailViewController.m in Sources */,
 				0855D0921BE9533C00A3E1DC /* FacebookHelper.m in Sources */,
@@ -276,6 +295,7 @@
 				0852BBAD1BD0593900F72EFB /* MainViewController.m in Sources */,
 				0852BB931BD050CF00F72EFB /* main.m in Sources */,
 				083C18F71BEBD9C600B2A4D5 /* MainTabBarController.m in Sources */,
+				08A466141BFD740200720092 /* FartCoding.m in Sources */,
 				083C18FA1BEBE70E00B2A4D5 /* FartometerViewController.m in Sources */,
 				08C683131BE7ED1100818CDD /* BLE.m in Sources */,
 				08A158A41BEA847E005E232E /* BLEHelper.m in Sources */,
