@@ -142,7 +142,7 @@
 
 - (BOOL) isDebugging
 {
-    return YES;
+    return NO;
 }
 
 @end
