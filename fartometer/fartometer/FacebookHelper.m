@@ -86,7 +86,7 @@
 
 - (void) getFacebookProfileInfo
 {
-    FBSDKGraphRequest *requestMe = [[FBSDKGraphRequest alloc]initWithGraphPath:@"me" parameters:nil];
+    FBSDKGraphRequest *requestMe = [[FBSDKGraphRequest alloc]initWithGraphPath:@"me" parameters:@{@"fields": @"id, name"}];
     FBSDKGraphRequestConnection *connection = [[FBSDKGraphRequestConnection alloc] init];
     
     [connection addRequest:requestMe completionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error)
