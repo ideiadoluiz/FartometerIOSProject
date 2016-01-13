@@ -7,5 +7,8 @@ First of all, you should set your Facebook SDK for iOS location. The default ins
 
 After that, you should probably configure your info.plist file with your **FacebookAppID** key. 
 
+### HOW TO BUILD YOUR OWN FARTOMETER
+If you are willing to get to know how to build your own fartometer, please visit [How to build your own Fartometer](http://www.ideiadoluiz.com.br/site/how-to-build-your-own-fartometer/)
+
 ### LICENSE
 This project extends [GNU GPL v. 2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html), so be aware of that, regarding copying, modifying and (re)destributing the application. 
