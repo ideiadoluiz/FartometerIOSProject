@@ -391,6 +391,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Luiz Oliveira (T77XYGL4LJ)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Luiz Oliveira (T77XYGL4LJ)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherit)",
 					"\"$(SRCROOT)/../../../../../Documents/FacebookSDKs-iOS-20151007/\"",
@@ -399,8 +401,10 @@
 				);
 				INFOPLIST_FILE = fartometer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ideiadoluiz.fartometer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ideiadoluiz.fart;
 				PRODUCT_NAME = Fartometer;
+				PROVISIONING_PROFILE = "da16451d-12da-4507-8e61-32a4c2f727ec";
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -408,15 +412,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Luiz Oliveira (T77XYGL4LJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Luiz Oliveira (T77XYGL4LJ)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherit)",
+					"\"$(SRCROOT)/../../../../../Documents/FacebookSDKs-iOS-20151007/\"",
 					"\"$(SRCROOT)/../../\"",
 					"\"$(SRCROOT)/\"",
 				);
 				INFOPLIST_FILE = fartometer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ideiadoluiz.fartometer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ideiadoluiz.fart;
 				PRODUCT_NAME = Fartometer;
+				PROVISIONING_PROFILE = "da16451d-12da-4507-8e61-32a4c2f727ec";
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Release;
 		};
